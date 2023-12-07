@@ -72,14 +72,15 @@ solution_1 :: proc(line: string) -> int {
 }
 
 main :: proc() {
-	data, _ := os.read_entire_file(FILE_NAME, context.allocator)
-	defer delete(data, context.allocator)
+	if data, ok := os.read_entire_file(FILE_NAME); ok {
+		defer delete(data)
 
-	sum := 0
-	it := string(data)
-	for line in strings.split_lines_iterator(&it) {
-		sum += solution_2(line)
+		sum := 0
+		it := string(data)
+		for line in strings.split_lines_iterator(&it) {
+			sum += solution_2(line)
+		}
+
+		fmt.println(sum)
 	}
-
-	fmt.println(sum)
 }
