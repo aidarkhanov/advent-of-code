@@ -14,11 +14,6 @@ Cube_Set :: struct {
 	red, green, blue: int,
 }
 
-Game :: struct {
-	id: int,
-	cube_sets: [dynamic]Cube_Set,
-}
-
 // Game [id]: [x] red, [y] green, [z] blue; ...[n]
 
 solution_2 :: proc(line: string) -> (int, bool) {
