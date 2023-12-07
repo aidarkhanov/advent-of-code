@@ -44,15 +44,13 @@ solution_2 :: proc(line: string) -> int {
 
 	assert(len(numbers) >= 1, "No digits found in the string")
 
-	first_digit := numbers[0]
-	last_digit := numbers[len(numbers) - 1]
+	first_digit, last_digit := numbers[0], numbers[len(numbers) - 1]
 
 	return strconv.atoi(fmt.aprintf("%d%d", first_digit, last_digit))
 }
 
 solution_1 :: proc(line: string) -> int {
-	first_digit: int
-	last_digit: int
+	first_digit, last_digit: int
 
 	for char in line {
 		if char >= '0' && char <= '9' {
@@ -72,6 +70,8 @@ solution_1 :: proc(line: string) -> int {
 }
 
 main :: proc() {
+	defer delete(WORD_TO_DIGIT)
+
 	if data, ok := os.read_entire_file(FILE_NAME); ok {
 		defer delete(data)
 
