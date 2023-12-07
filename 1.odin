@@ -22,21 +22,23 @@ solution_2 :: proc(line: string) -> int {
 
 		for word, number in WORD_TO_DIGIT {
 			word_len := len(word)
+
 			if i + word_len <= len(line) && line[i:i + word_len] == word {
 				append(&numbers, number)
-				i += word_len - 1
 				matched = true
+				i += word_len - 1
 				break
 			}
 		}
 
-		char := line[i]
 		if !matched {
-			i += 1
+			char := line[i]
 
 			if char >= '0' && char <= '9' {
 				append(&numbers, int(char - '0'))
 			}
+
+			i += 1
 		}
 	}
 
