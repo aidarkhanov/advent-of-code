@@ -56,9 +56,11 @@ adj_lookup :: proc(
 
 solution_2 :: proc(lines: string) -> (sum: int) {
 	lines := split_strings(lines)
-
 	pairs := make(map[Coords]Int_Pair)
-	defer delete(pairs)
+	defer {
+		delete(lines)
+		delete(pairs)
+	}
 
 	for line, x in lines {
 		digits: strings.Builder
@@ -111,6 +113,7 @@ solution_2 :: proc(lines: string) -> (sum: int) {
 
 solution_1 :: proc(lines: string) -> (sum: int) {
 	lines := split_strings(lines)
+	defer delete(lines)
 
 	for line, x in lines {
 		digits: strings.Builder
