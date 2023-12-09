@@ -1,11 +1,11 @@
-package main
+package day1
 
 import "core:fmt"
 import "core:os"
 import "core:strconv"
 import "core:strings"
 
-FILE_NAME :: "1.txt"
+FILE_NAME :: "day1.txt"
 WORD_TO_DIGIT := map[string]int{
 	"zero"  = 0, "one"   = 1, "two"   = 2,
 	"three" = 3, "four"  = 4, "five"  = 5,

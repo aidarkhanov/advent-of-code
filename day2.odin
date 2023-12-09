@@ -1,11 +1,11 @@
-package main
+package day2
 
 import "core:fmt"
 import "core:strconv"
 import "core:strings"
 import "core:os"
 
-FILE_NAME :: "2.txt"
+FILE_NAME :: "day2.txt"
 RED :: 12
 GREEN :: 13
 BLUE :: 14
@@ -114,7 +114,6 @@ main :: proc() {
 			sum += id
 		}
 
-		fmt.println(results)
 		fmt.println(sum)
 	}
 }

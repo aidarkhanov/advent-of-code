@@ -1,4 +1,4 @@
-package main
+package day3
 
 import "core:fmt"
 import "core:os"
@@ -7,7 +7,7 @@ import "core:strings"
 import "core:testing"
 import "core:unicode/utf8"
 
-FILE_NAME :: "3.txt"
+FILE_NAME :: "day3.txt"
 
 Coords :: distinct [2]int
 Int_Pair :: distinct [2]int
