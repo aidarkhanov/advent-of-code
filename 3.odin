@@ -135,7 +135,9 @@ solution_1 :: proc(lines: string) -> (sum: int) {
 				}
 
 				if matched_special {
-					sum += strconv.atoi(strings.to_string(digits))
+					number := strconv.atoi(strings.to_string(digits))
+
+					sum += number
 				}
 			}
 		}
