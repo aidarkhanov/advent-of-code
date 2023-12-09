@@ -28,7 +28,7 @@ split_strings :: proc(lines: string) -> (result: [dynamic][]rune) {
 	for line in strings.split_lines_iterator(&it) {
 		append(&result, utf8.string_to_runes(line))
 	}
-	return result
+	return
 }
 
 adj_lookup :: proc(
