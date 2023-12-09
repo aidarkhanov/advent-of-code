@@ -78,7 +78,7 @@ solution_2 :: proc(lines: string) -> (sum: int) {
 				strings.write_rune(&digits, char)
 			}
 
-			// by checking if we are the last column,
+			// by checking if we are at the last col,
 			// numbers that are not followed by a dot
 			// are not skipped.
 			//
