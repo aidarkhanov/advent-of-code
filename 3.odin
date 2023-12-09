@@ -4,6 +4,7 @@ import "core:fmt"
 import "core:os"
 import "core:strconv"
 import "core:strings"
+import "core:testing"
 import "core:unicode/utf8"
 
 FILE_NAME :: "3.txt"
@@ -154,4 +155,38 @@ main :: proc() {
 
 		fmt.println(sum)
 	}
+}
+
+@test
+test_solution_1 :: proc(t: ^testing.T) {
+	data := `467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..`
+	result := 4361
+
+	testing.expect(t, solution_1(data) == result)
+}
+
+@test
+test_solution_2 :: proc(t: ^testing.T) {
+	data := `467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..`
+	result := 467835
+
+	testing.expect(t, solution_2(data) == result)
 }
