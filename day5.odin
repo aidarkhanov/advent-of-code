@@ -67,8 +67,7 @@ parse_lines_ranges :: proc(lines: string) -> (ranges: Ranges, mapping: Mapping) 
 				continue
 			}
 
-			fmt.eprintln("Error: Unreachable code.")
-			os.exit(1)
+			unreachable()
 		}
 	}
 
@@ -111,8 +110,7 @@ parse_lines :: proc(lines: string) -> (seeds: Seeds, mapping: Mapping) {
 				continue
 			}
 
-			fmt.eprintln("Error: Unreachable code.")
-			os.exit(1)
+			unreachable()
 		}
 	}
 
@@ -131,12 +129,7 @@ map_number :: proc(seed: int, instructions: Instructions) -> int {
 }
 
 find_lowest_location_ranges :: proc(ranges: Ranges, mapping: Mapping) -> int {
-	if len(ranges) == 0 {
-		fmt.eprintln("Error: No ranges provided.")
-		return -1
-	}
-
-	min_location := 9223372036854775807
+	min_location := max(int) 
 	for range in ranges {
 		for seed in range.start..<(range.start + range.length) {
 			soil := map_number(seed, mapping["seed-to-soil"])
@@ -157,11 +150,6 @@ find_lowest_location_ranges :: proc(ranges: Ranges, mapping: Mapping) -> int {
 }
 
 find_lowest_location :: proc(seeds: Seeds, mapping: Mapping) -> int {
-	if len(seeds) == 0 {
-		fmt.eprintln("Error: No seeds provided.")
-		return -1
-	}
-
 	process_seed_through_mappings :: proc(seed: int, mapping: Mapping) -> int {
 		soil := map_number(seed, mapping["seed-to-soil"])
 		fertilizer := map_number(soil, mapping["soil-to-fertilizer"])
